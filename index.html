@@ -50,6 +50,7 @@
                         <span class="notify-icon">
                             <i class="fa-solid fa-bell-slash"></i>
                         </span>
+
                         <div class="banner-txt">
                             <h3>Ricevi notifiche di nuovi messaggi</h3>
                             <a href="">Attiva notifiche desktop</a>
@@ -76,16 +77,15 @@
                                 <span>{{item.messages[item.messages.length - 1].date.substring(10).slice(0, -3)}}</span>
                             </div>
                         </div>  
-                          
-
                     </section>
                     <!-- /recent chat -->
-
+                    
                 </div>
                 <!-- /left side -->
 
                 <!-- right side -->
                 <section class="current-chat">
+
                     <!-- current chat header -->
                     <div class="header">
                         <template v-if="currItem">
@@ -104,29 +104,27 @@
                                 </ul>
                             </div>
                         </template>
-                        
                     </div>
                     <!-- /current chat header -->
-
+                    
+                    <!-- current chat body -->
                     <div class="body-chat">
                         <div  class="chat-container">
                             <template v-if="currItem">
                                 <div v-for="messageProp in currItem.messages" class="msg-row" >
                                     <div class="handle-msg" :class="messageProp.status">
-                                        {{ messageProp.message }} <span class="msg-hour">12:00</span> 
+                                        {{ messageProp.message }} <span class="msg-hour">{{ messageProp.date.substring(10).slice(0, -3) }}</span> 
                                     </div>
-                                    
                                 </div>
-                               
                             </template>
-                            
-                            
                         </div>
                     </div>
+                    <!-- /current chat body -->
+
                 </section>
                 <!-- /right side -->
-            </div>
 
+            </div>
         </div>
     </div>
 
