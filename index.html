@@ -72,8 +72,8 @@
                             <img :src="`img/avatar${item.avatar}.jpg`" alt="">
                             <div class="name-info">
                                 <h3>{{item.name}}</h3>
-                                <p>Ultimo messaggio inviato</p>
-                                <span>12:00</span>
+                                <p>{{item.messages[item.messages.length - 1].message}}</p>
+                                <span>{{item.messages[item.messages.length - 1].date}}</span>
                             </div>
                         </div>  
                           
