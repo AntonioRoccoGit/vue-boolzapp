@@ -20,9 +20,10 @@ img {
 }
 
 .mc-wrapper {
+    padding-top: 2rem;
     width: 90%;
     min-width: 900px;
-    margin: 2rem auto 0;
+    margin: 0 auto;
     height: 90%;
     /* debug */
     border: 1px solid black;
@@ -34,13 +35,25 @@ img {
     background-color: var(--bg-main-layout);
 }
 
-/* left side */
+/* **************|LEFT SIDE|************** */
 .recently-message {
     width: 40%;
     border-right: 1px solid black;
 }
 
-/* right side */
+.recently-message .header {
+    padding: .8rem 1.2rem;
+    /* debug */
+    border: 1px solid;
+}
+
+.user-info img {
+    width: 50px;
+    border-radius: 50%;
+}
+
+
+/* **************|RIGHT SIDE|************** */
 .current-chat {
     width: 60%;
 }
