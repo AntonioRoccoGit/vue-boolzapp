@@ -1,0 +1,53 @@
+/* **************|RESET|************** */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(44, 32, 32);
+}
+
+img {
+    width: 100%;
+}
+
+/* **************|LAYOUT|************** */
+#app {
+    width: 100%;
+    height: 100vh;
+}
+
+.mc-wrapper {
+    width: 90%;
+    min-width: 900px;
+    margin: 2rem auto 0;
+    height: 90%;
+    /* debug */
+    border: 1px solid black;
+}
+
+.boolzapp {
+    height: 100%;
+    display: flex;
+    background-color: var(--bg-main-layout);
+}
+
+/* left side */
+.recently-message {
+    width: 40%;
+    border-right: 1px solid black;
+}
+
+/* right side */
+.current-chat {
+    width: 60%;
+}
+
+/* **************|VARIABLES|************** */
+:root {
+
+    /* bg color */
+    --bg-main-layout: #EAEAEA;
+}
