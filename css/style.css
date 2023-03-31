@@ -74,7 +74,8 @@ ul {
     font-weight: 600;
 }
 
-.recently-message .header ul {
+.recently-message .header ul,
+.current-chat .header ul {
     display: flex;
     height: 100%;
     align-items: center;
@@ -82,13 +83,15 @@ ul {
     color: var(--primary-gray);
 }
 
-.recently-message .header li {
+.recently-message .header li,
+.current-chat .header li {
     cursor: pointer;
     width: 20px;
     text-align: center;
 }
 
-.recently-message .header li:not(:last-child) {
+.recently-message .header li:not(:last-child),
+.current-chat .header li:not(:last-child){
     margin-right: 15px;
 }
 
@@ -98,7 +101,6 @@ ul {
     height: 70px;
     background-color: var(--primary-azure);
     padding: .8rem 1.2rem;
-    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -178,7 +180,7 @@ ul {
 
 .recent-chat-card span {
     position: absolute;
-    font-size: 10px;
+    font-size: 12px;
     color: var(--primary-gray);
     right: 12px;
     top: 14px;
@@ -197,9 +199,40 @@ ul {
 
 /* **************|RIGHT SIDE|************** */
 .current-chat {
-    width: 60%;
+    width: 100%;
 }
 
+.current-chat .header {
+    display: flex;
+}
+
+.curr-chat-info img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+
+.curr-chat-info {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: .8rem 1.2rem;
+}
+
+.body-chat {
+    height: calc(100% - 140px);
+    overflow-y: auto;
+    background-image: url(../img/mine.jpg);
+}
+
+.user-info-txt {
+    padding-left: 1rem;
+}
+
+.user-info-txt p {
+    font-size: .7rem;
+    color: var(--primary-gray );
+}
 /* **************|UTILITIES|************** */
 .input-padding::-webkit-input-placeholder {
     padding-left: 1rem;
