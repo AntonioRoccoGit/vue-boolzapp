@@ -3,6 +3,8 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            
+            currItem: {},
             contacts: [
                 {
                     name: 'Michele',
@@ -166,6 +168,13 @@ createApp({
                     ],
                 }
             ]
+        }
+    },
+    methods: {
+        setCurrItem(a) {
+            currItem.push(a);
+            console.log(currItem);
+            return currItem;
         }
     }
 }).mount("#app")

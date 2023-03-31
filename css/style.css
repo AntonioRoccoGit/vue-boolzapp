@@ -129,6 +129,10 @@ ul {
 }
 
 /* search chat */
+.input-padding {
+    padding-left: 1rem;
+}
+
 .search-chat-container {
     height: 50px;
     display: flex;
@@ -159,6 +163,7 @@ ul {
 .recent-chat {
     overflow-y: scroll;
     height: calc(100% - 190px);
+    background-color: var(--bg-secondary-layout);
 }
 
 .recent-chat-card {
@@ -195,6 +200,45 @@ ul {
 .recent-chat-card h3 {
     font-size: 1rem;
     font-weight: 400;
+}
+
+/* body chat text */
+.chat-container {
+    padding-top: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.msg-row {
+    padding-bottom: .4rem;
+    display: grid;
+}
+
+.handle-msg {
+    font-size: .8rem;
+    position: relative;
+    padding: .8rem;
+    padding-right: 5rem;
+    border-radius: 12px;
+}
+
+.handle-msg.sent {
+    justify-self: end;
+    background-color: var(--msg-sent);
+
+}
+
+.handle-msg.received {
+    justify-self: start;
+    background-color: white;
+}
+
+.msg-hour {
+    color: var(--primary-gray);
+    font-size: 8px;
+    position: absolute;
+    right: 10px;
+    bottom: 6px;
 }
 
 /* **************|RIGHT SIDE|************** */
@@ -234,18 +278,19 @@ ul {
     color: var(--primary-gray );
 }
 /* **************|UTILITIES|************** */
-.input-padding::-webkit-input-placeholder {
+/* .input-padding::-webkit-input-placeholder {
     padding-left: 1rem;
-}
+} */
 
 /* **************|VARIABLES|************** */
 :root {
+    
 
-    /* bg color */
+    /* color */
     --bg-main-layout: #EAEAEA;
     --bg-secondary-layout: #FAFAFA;
     --secondary-gray: #F1F1F1;
-
+    --msg-sent: #D5F9BA;
     --primary-gray: #B1B1B1;
     --primary-azure: #8EDAFC;
 }

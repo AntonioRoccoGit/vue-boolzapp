@@ -68,7 +68,7 @@
 
                     <!-- recent chat -->
                     <section class="recent-chat">
-                        <div v-for="item in contacts" class="recent-chat-card">
+                        <div @click="setCurrItem(item)" v-for="item in contacts" class="recent-chat-card">
                             <img :src="`img/avatar${item.avatar}.jpg`" alt="">
                             <div class="name-info">
                                 <h3>{{item.name}}</h3>
@@ -88,8 +88,8 @@
                 <section class="current-chat">
                     <!-- current chat header -->
                     <div class="header">
-                        <div class="curr-chat-info">
-                            <img src="img/avatar_io.jpg" alt="">
+                        <div v-if="currItem" class="curr-chat-info">
+                            <img  :src="`img/avatar${currItem.avatar}.jpg`" alt="">
                             <div class="user-info-txt">
                                 <span class="user-name">Sofia</span>
                                 <p>Ultimo accesso oggi alle 12:00</p>
@@ -106,7 +106,27 @@
                     <!-- /current chat header -->
 
                     <div class="body-chat">
-
+                        <div class="chat-container">
+                            <div class="msg-row">
+                                <div class="handle-msg sent">
+                                    Ciao Inviato <span class="msg-hour">12:00</span> 
+                                </div>
+                                
+                            </div>
+                            <div class="msg-row">
+                                <div class="handle-msg sent">
+                                    Ciao Inviato <span class="msg-hour">12:00</span> 
+                                </div>
+                                
+                            </div>
+                            <div class="msg-row">
+                                <div class="handle-msg sent">
+                                    Ciao Inviato <span class="msg-hour">12:00</span> 
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
                     </div>
                 </section>
                 <!-- /right side -->
