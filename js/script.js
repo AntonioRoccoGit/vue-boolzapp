@@ -4,7 +4,7 @@ createApp({
     data() {
         return {
             
-            currItem: {},
+            currItem: null,
             contacts: [
                 {
                     name: 'Michele',
@@ -172,9 +172,7 @@ createApp({
     },
     methods: {
         setCurrItem(a) {
-            currItem.push(a);
-            console.log(currItem);
-            return currItem;
+            this.currItem = a;
         }
     }
 }).mount("#app")

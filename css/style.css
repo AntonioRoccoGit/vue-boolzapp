@@ -248,6 +248,7 @@ ul {
 
 .current-chat .header {
     display: flex;
+    height: 70px;
 }
 
 .curr-chat-info img {

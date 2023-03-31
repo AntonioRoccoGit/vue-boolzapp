@@ -88,43 +88,38 @@
                 <section class="current-chat">
                     <!-- current chat header -->
                     <div class="header">
-                        <div v-if="currItem" class="curr-chat-info">
-                            <img  :src="`img/avatar${currItem.avatar}.jpg`" alt="">
-                            <div class="user-info-txt">
-                                <span class="user-name">Sofia</span>
-                                <p>Ultimo accesso oggi alle 12:00</p>
+                        <template v-if="currItem">
+                            <div  class="curr-chat-info">
+                                <img  :src="`img/avatar${currItem.avatar}.jpg`" alt="">
+                                <div class="user-info-txt">
+                                    <span class="user-name">{{ currItem.name }}</span>
+                                    <p>Ultimo accesso oggi alle {{ currItem.messages[currItem.messages.length - 1].date.substring(10).slice(0, -3) }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="call-to-action">
-                            <ul>
-                                <li><i class="fa-solid fa-magnifying-glass"></i></li>
-                                <li><i class="fa-solid fa-paperclip"></i></li>
-                                <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
-                            </ul>
-                        </div>
+                            <div class="call-to-action">
+                                <ul>
+                                    <li><i class="fa-solid fa-magnifying-glass"></i></li>
+                                    <li><i class="fa-solid fa-paperclip"></i></li>
+                                    <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                                </ul>
+                            </div>
+                        </template>
+                        
                     </div>
                     <!-- /current chat header -->
 
                     <div class="body-chat">
-                        <div class="chat-container">
-                            <div class="msg-row">
-                                <div class="handle-msg sent">
-                                    Ciao Inviato <span class="msg-hour">12:00</span> 
+                        <div  class="chat-container">
+                            <template v-if="currItem">
+                                <div v-for="messageProp in currItem.messages" class="msg-row" >
+                                    <div class="handle-msg" :class="messageProp.status">
+                                        {{ messageProp.message }} <span class="msg-hour">12:00</span> 
+                                    </div>
+                                    
                                 </div>
-                                
-                            </div>
-                            <div class="msg-row">
-                                <div class="handle-msg sent">
-                                    Ciao Inviato <span class="msg-hour">12:00</span> 
-                                </div>
-                                
-                            </div>
-                            <div class="msg-row">
-                                <div class="handle-msg sent">
-                                    Ciao Inviato <span class="msg-hour">12:00</span> 
-                                </div>
-                                
-                            </div>
+                               
+                            </template>
+                            
                             
                         </div>
                     </div>
