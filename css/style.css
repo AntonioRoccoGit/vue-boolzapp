@@ -44,12 +44,14 @@ ul {
 /* header */
 .recently-message {
     width: 40%;
-    border-right: 1px solid black;
 }
 
 .recently-message .header {
     display: flex;
+    height: 70px;
     padding: .8rem 1.2rem;
+    border-right: 1.4px solid #E5DDD5;
+
 }
 
 .user-info {
@@ -112,17 +114,62 @@ ul {
 .banner-txt {
     padding-left: .6rem;
 }
+
 .banner-txt h3 {
     font-size: .8rem;
 }
+
 .banner-txt a {
     color: grey;
     font-size: .8rem;
 }
 
+/* search chat */
+.search-chat-container {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-secondary-layout);
+}
+
+.search-chat-container label {
+    line-height: 30px;
+    text-align: center;
+    height:30px;
+    width: 15%;
+    background-color: white;
+    border: 1px solid var(--secondary-gray);
+    color: var(--primary-gray);
+    cursor: pointer;
+}
+
+.search-chat-container input {
+    width: 80%;
+    height: 30px;
+    border: 1px solid var(--secondary-gray);
+
+} 
+
+/* recent chat */
+.recent-chat {
+    background-color: var(--bg-main-layout);
+}
+
+.recent-chat img {
+    width: 50px;
+}
+
+
+
 /* **************|RIGHT SIDE|************** */
 .current-chat {
     width: 60%;
+}
+
+/* **************|UTILITIES|************** */
+.input-padding::-webkit-input-placeholder {
+    padding-left: 1rem;
 }
 
 /* **************|VARIABLES|************** */
@@ -130,6 +177,9 @@ ul {
 
     /* bg color */
     --bg-main-layout: #EAEAEA;
+    --bg-secondary-layout: #FAFAFA;
+    --secondary-gray: #F1F1F1;
+
     --primary-gray: #B1B1B1;
     --primary-azure: #8EDAFC;
 }
