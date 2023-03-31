@@ -155,15 +155,16 @@ ul {
 
 /* recent chat */
 .recent-chat {
-    background-color: var(--bg-main-layout);
     overflow-y: scroll;
     height: calc(100% - 190px);
 }
 
 .recent-chat-card {
+    cursor: pointer;
     position: relative;
     display: flex;
     padding: 1rem .4rem;
+    background-color: var(--bg-secondary-layout);
 }
 
 .recent-chat-card img {
@@ -214,4 +215,8 @@ ul {
 
     --primary-gray: #B1B1B1;
     --primary-azure: #8EDAFC;
+}
+
+.recent-chat-card:hover {
+    background-color: var(--bg-main-layout);
 }
