@@ -44,6 +44,7 @@ ul {
 /* header */
 .recently-message {
     width: 40%;
+    height: 100%;
 }
 
 .recently-message .header {
@@ -94,6 +95,7 @@ ul {
 /* enable notification */ 
 .notification-banner {
     display: flex;
+    height: 70px;
     background-color: var(--primary-azure);
     padding: .8rem 1.2rem;
     flex-wrap: wrap;
@@ -154,13 +156,43 @@ ul {
 /* recent chat */
 .recent-chat {
     background-color: var(--bg-main-layout);
+    overflow-y: scroll;
+    height: calc(100% - 190px);
 }
 
-.recent-chat img {
+.recent-chat-card {
+    position: relative;
+    display: flex;
+    padding: 1rem .4rem;
+}
+
+.recent-chat-card img {
     width: 50px;
+    border-radius: 50%;
 }
 
+.name-info {
+    padding-left: 15px;
+}
 
+.recent-chat-card span {
+    position: absolute;
+    font-size: 10px;
+    color: var(--primary-gray);
+    right: 12px;
+    top: 14px;
+}
+
+.recent-chat-card p {
+    padding-top: .2rem;
+    font-size: .8rem;
+    color: var(--primary-gray);
+} 
+
+.recent-chat-card h3 {
+    font-size: 1rem;
+    font-weight: 400;
+}
 
 /* **************|RIGHT SIDE|************** */
 .current-chat {

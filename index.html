@@ -16,6 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@;200;300;600&display=swap" rel="stylesheet">
+    <!-- VUE LINK -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
 <body>
@@ -66,10 +68,15 @@
 
                     <!-- recent chat -->
                     <section class="recent-chat">
-                        <div class="recent-chat-card">
-                            <img src="img/avatar_1.jpg" alt="">
-
-                        </div>
+                        <div v-for="item in contacts" class="recent-chat-card">
+                            <img :src="`img/avatar${item.avatar}.jpg`" alt="">
+                            <div class="name-info">
+                                <h3>{{item.name}}</h3>
+                                <p>Ultimo messaggio inviato</p>
+                                <span>12:00</span>
+                            </div>
+                        </div>  
+                          
 
                     </section>
                     <!-- /recent chat -->
@@ -90,7 +97,7 @@
     </div>
 
 
-
+    <script src="js/script.js"></script>
 </body>
 
 </html>
