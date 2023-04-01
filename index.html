@@ -62,7 +62,7 @@
                     <section class="search-chat">
                         <div class="search-chat-container">
                             <label for="search-chat"><i class="fa-solid fa-magnifying-glass"></i></label>
-                            <input tabindex="0" class="input-padding" type="text" id="search-chat"
+                            <input tabindex="0" @keyup.enter="foundChat" v-model="filterChat" class="input-padding" type="text" id="search-chat"
                                 placeholder="Cerca o inizia una nuova chat">
                         </div>
                     </section>
@@ -70,7 +70,7 @@
 
                     <!-- recent chat -->
                     <section class="recent-chat">
-                        <div @click="setCurrItem(item)" @keyup.enter="setCurrItem(item)" tabindex="0"
+                        <div @click="setCurrItem(item)" v-show="item.visible" @keyup.enter="setCurrItem(item)" tabindex="0"
                             v-for="item in contacts" class="recent-chat-card">
                             <img :src="`img/avatar${item.avatar}.jpg`" alt="">
                             <div class="name-info">

@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            filterChat: "",
             newMessage: null,
             currItem: null,
             contacts: [
@@ -171,19 +172,27 @@ createApp({
         }
     },
     methods: {
-        setCurrItem(a) {
-            this.currItem = a;
+        setCurrItem(item) {
+            this.currItem = item;
         },
-        sendMessage(b) {
+        sendMessage(item) {
             //vorrei prendere la data del messagio
             let currentDate = new Date().toLocaleString("en-GB");
 
-            b.messages.push({
+            item.messages.push({
                 date: currentDate,
                 message: this.newMessage,
                 status: 'sent'
             });
             this.newMessage = null;
+        },
+        foundChat() {
+            for (index in this.contacts) {
+                let currentItem = this.contacts[index];
+                
+                currentItem.visible = currentItem.name.toLowerCase().indexOf(this.filterChat) > -1;
+                console.log(currentItem);
+            }
         }
     }
 }).mount("#app")
