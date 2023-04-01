@@ -3,7 +3,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            
+            newMessage: null,
             currItem: null,
             contacts: [
                 {
@@ -13,7 +13,7 @@ createApp({
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
-                            message: 'Hai portato a spasso il cane?',
+                            message: 'hai portato a spasso il cane?',
                             status: 'sent'
                         },
                         {
@@ -173,6 +173,17 @@ createApp({
     methods: {
         setCurrItem(a) {
             this.currItem = a;
+        },
+        sendMessage(b) {
+            //vorrei prendere la data del messagio
+            let currentDate = new Date().toLocaleString("en-GB");
+
+            b.messages.push({
+                date: currentDate,
+                message: this.newMessage,
+                status: 'sent'
+            });
+            this.newMessage = null;
         }
     }
 }).mount("#app")
