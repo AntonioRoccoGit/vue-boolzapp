@@ -4,7 +4,7 @@ createApp({
     data() {
         return {
             filterChat: "",
-            newMessage: null,
+            newMessage: "",
             currItem: null,
             contacts: [
                 {
@@ -178,20 +178,21 @@ createApp({
         sendMessage(item) {
             //vorrei prendere la data del messagio
             let currentDate = new Date().toLocaleString("en-GB");
-
-            item.messages.push({
-                date: currentDate,
-                message: this.newMessage,
-                status: 'sent'
-            });
-            this.newMessage = null;
+            if (this.newMessage !== "") {
+                item.messages.push({
+                    date: currentDate,
+                    message: this.newMessage,
+                    status: 'sent'
+                });
+                this.newMessage = "";
+            }
         },
         foundChat() {
             for (index in this.contacts) {
                 let currentItem = this.contacts[index];
-                
-                currentItem.visible = currentItem.name.toLowerCase().indexOf(this.filterChat) > -1;
-                console.log(currentItem);
+                let currentItemName = currentItem.name.toLowerCase();
+
+                currentItem.visible = currentItemName.indexOf(this.filterChat.toLowerCase()) > -1;
             }
         }
     }
