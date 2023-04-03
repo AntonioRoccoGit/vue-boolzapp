@@ -184,7 +184,7 @@ createApp({
                     message: this.newMessage,
                     status: 'sent'
                 });
-                setInterval(() => {
+                setTimeout(() => {
                     item.messages.push({
                         date: currentDate,
                         message: "Ciaoooo",
