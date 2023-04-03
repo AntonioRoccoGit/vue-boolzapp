@@ -324,8 +324,12 @@ ul {
 
 .body-chat {
     height: calc(100% - 130px);
-    overflow-y: auto;
+    overflow-y: scroll;
     background-image: url(../img/mine.jpg);
+}
+
+.body-chat::-webkit-scrollbar-track {
+    background: var(--bg-main-layout);
 }
 
 .user-info-txt {
