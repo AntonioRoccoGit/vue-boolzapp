@@ -204,6 +204,7 @@ ul {
     font-weight: 400;
 }
 
+/* **************|RIGHT SIDE|************** */
 /* body chat text */
 .chat-container {
     padding: 2rem 2rem 0;
@@ -214,6 +215,7 @@ ul {
 .msg-row {
     padding-bottom: .4rem;
     display: grid;
+    position: relative;
 }
 
 .handle-msg {
@@ -231,9 +233,63 @@ ul {
 
 }
 
+
 .handle-msg.received {
     justify-self: start;
     background-color: white;
+}
+
+/* handle pop up */
+.pop-up {
+    position: absolute;
+    font-size: 10px;
+    box-shadow: 8px 10px 12px 0px #888888;
+    border-radius: 5px;
+    z-index: 999;
+}
+
+.pop-up.sent {
+    justify-self: end;
+    background-color: white;
+    bottom: -40px;
+    right: 30px;
+}
+
+.pop-up.received {
+    justify-self: start;
+    background-color: white;
+    bottom: -40px;
+    left: 30px;
+}
+
+.pop-up li{
+    cursor: pointer;
+    text-align: center;
+    padding: 10px 0;
+    width: 120px;
+    height: 30px;
+}
+
+.pop-up li:first-child:hover {
+    background-color: rgb(252, 73, 73);
+    border-radius: 5px 5px 0 0;
+}
+.pop-up li:last-child:hover {
+    background-color: rgb(194, 194, 194);
+    border-radius: 0 0 5px 5px;
+}
+
+.delete-msg {
+    color: green;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    display: none;
+}
+
+.handle-msg:hover .delete-msg {
+    display: block;
+    cursor: pointer;
 }
 
 .msg-hour {
@@ -244,7 +300,6 @@ ul {
     bottom: 6px;
 }
 
-/* **************|RIGHT SIDE|************** */
 .current-chat {
     width: 100%;
 }

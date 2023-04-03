@@ -111,10 +111,19 @@
                     <!-- current chat body -->
                     <div class="body-chat">
                         <div class="chat-container">
-                            <div v-for="messageProp in currItem.messages" class="msg-row">
+                            <div v-for="(messageProp, index) in currItem.messages" class="msg-row">
                                 <div class="handle-msg" :class="messageProp.status">
                                     {{ messageProp.message }} <span class="msg-hour">{{
                                         messageProp.date.substring(11).slice(0, -3) }}</span>
+                                        <span class="delete-msg">
+                                            <i class="fa-solid fa-angle-down"></i>
+                                        </span>
+                                </div>
+                                <div class="pop-up" :class="messageProp.status">
+                                    <ul >
+                                        <li>Elimina</li>
+                                        <li>Info</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
