@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: rgb(44, 32, 32);
+    background: linear-gradient(var(--body-top-bg) 15%, var(--body-bottom-bg) 15% 100%)
 }
 
 img {
@@ -30,8 +30,6 @@ ul {
     min-width: 900px;
     margin: 0 auto;
     height: 90%;
-    /* debug */
-    border: 1px solid black;
 }
 
 .boolzapp {
@@ -328,6 +326,9 @@ ul {
     --msg-sent: #D5F9BA;
     --primary-gray: #B1B1B1;
     --primary-azure: #8EDAFC;
+    /* body bg */
+    --body-top-bg: #009688;
+    --body-bottom-bg: #DADBD4;
 }
 
 .recent-chat-card:hover {

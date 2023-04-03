@@ -184,6 +184,14 @@ createApp({
                     message: this.newMessage,
                     status: 'sent'
                 });
+                setInterval(() => {
+                    item.messages.push({
+                        date: currentDate,
+                        message: "Ciaoooo",
+                        status: 'received'
+                    });
+                }, 1500);
+                
                 this.newMessage = "";
             }
         },
