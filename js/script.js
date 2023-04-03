@@ -207,14 +207,14 @@ createApp({
             }
         },
         openChatMenu(item) {
-            if (!item.popUpStatus){
+             if (!item.popUpStatus){
                 for(const index in this.contacts){
                     let currContact = this.contacts[index];
                     for (const key in currContact.messages) {
                         currContact.messages[key].popUpStatus = false;
                     }
                 }
-            }
+             }
             item.popUpStatus = !item.popUpStatus;
         },
         deleteChat(item, index) {
