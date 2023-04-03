@@ -187,7 +187,7 @@ createApp({
                 setTimeout(() => {
                     item.messages.push({
                         date: currentDate,
-                        message: "Ciaoooo",
+                        message: "Viva Boolean, viva JS!",
                         status: 'received'
                     });
                 }, 1500);

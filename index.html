@@ -31,7 +31,7 @@
                     <!-- secton-header & call to action -->
                     <section class="header">
                         <div class="user-info">
-                            <img src="img/avatar_io.jpg" alt="">
+                            <img src="img/avatar_io.jpg" alt="Sofia">
                             <span class="user-name">Sofia</span>
                         </div>
 
@@ -72,7 +72,7 @@
                     <section class="recent-chat">
                         <div @click="setCurrItem(item)" v-show="item.visible" @keyup.enter="setCurrItem(item)" tabindex="0"
                             v-for="item in contacts" class="recent-chat-card">
-                            <img :src="`img/avatar${item.avatar}.jpg`" alt="">
+                            <img :src="`img/avatar${item.avatar}.jpg`" :alt="item.name">
                             <div class="name-info">
                                 <h3>{{item.name}}</h3>
                                 <p>{{item.messages[item.messages.length - 1].message}}</p>
@@ -91,11 +91,11 @@
                     <!-- current chat header -->
                     <div class="header">
                         <div class="curr-chat-info">
-                            <img :src="`img/avatar${currItem.avatar}.jpg`" alt="">
+                            <img :src="`img/avatar${currItem.avatar}.jpg`" :alt="currItem.name">
                             <div class="user-info-txt">
                                 <span class="user-name">{{ currItem.name }}</span>
-                                <p>Ultimo accesso oggi alle {{ currItem.messages[currItem.messages.length -
-                                    1].date.substring(11).slice(0, -3) }}</p>
+                                <p>Ultimo accesso {{ currItem.messages[currItem.messages.length -
+                                    1].date.slice(0, -3) }}</p>
                             </div>
                         </div>
                         <div class="call-to-action">
@@ -144,8 +144,6 @@
         </div>
     </div>
 
-
     <script src="js/script.js"></script>
 </body>
-
 </html>
