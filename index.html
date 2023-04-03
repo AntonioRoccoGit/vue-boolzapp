@@ -115,13 +115,13 @@
                                 <div class="handle-msg" :class="messageProp.status">
                                     {{ messageProp.message }} <span class="msg-hour">{{
                                         messageProp.date.substring(11).slice(0, -3) }}</span>
-                                        <span class="delete-msg">
+                                        <span @click="openChatMenu(messageProp)" class="msg-menu">
                                             <i class="fa-solid fa-angle-down"></i>
                                         </span>
                                 </div>
                                 <div class="pop-up" :class="messageProp.status">
-                                    <ul >
-                                        <li>Elimina</li>
+                                    <ul v-show="messageProp.popUpStatus">
+                                        <li @click="deleteChat(currItem, index)">Elimina</li>
                                         <li>Info</li>
                                     </ul>
                                 </div>

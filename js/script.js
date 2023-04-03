@@ -5,28 +5,7 @@ createApp({
         return {
             filterChat: "",
             newMessage: "",
-            currItem: {
-                name: 'Michele',
-                avatar: '_1',
-                visible: true,
-                messages: [
-                    {
-                        date: '10/01/2020 15:30:55',
-                        message: 'hai portato a spasso il cane?',
-                        status: 'sent'
-                    },
-                    {
-                        date: '10/01/2020 15:50:00',
-                        message: 'Ricordati di stendere i panni',
-                        status: 'sent'
-                    },
-                    {
-                        date: '10/01/2020 16:15:22',
-                        message: 'Tutto fatto!',
-                        status: 'received'
-                    }
-                ],
-            },
+            currItem: null,
             contacts: [
                 {
                     name: 'Michele',
@@ -194,6 +173,9 @@ createApp({
     },
     methods: {
         setCurrItem(item) {
+            for (const key in item.messages) {
+                item.messages[key].popUpStatus = false;
+            }
             this.currItem = item;
         },
         sendMessage(item) {
@@ -224,8 +206,21 @@ createApp({
                 currentItem.visible = currentItemName.indexOf(this.filterChat.toLowerCase()) > -1;
             }
         },
-        deleteChat() {
-            
+        openChatMenu(item) {
+            if (!item.popUpStatus){
+                for(const index in this.contacts){
+                    let currContact = this.contacts[index];
+                    for (const key in currContact.messages) {
+                        currContact.messages[key].popUpStatus = false;
+                    }
+                }
+            }
+            item.popUpStatus = !item.popUpStatus;
+        },
+        deleteChat(item, index) {
+            if(item.messages.length > 1) {
+                item.messages.splice(index, 1);
+            }
         }
     }
 }).mount("#app")
