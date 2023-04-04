@@ -211,8 +211,6 @@ ul {
 .chat-container {
     height: 100%;
     padding: 2rem 2rem 0;
-    max-width: 900px;
-    margin: 0 auto;
     overflow-y: scroll;
 }
 
@@ -220,6 +218,8 @@ ul {
     padding-bottom: .4rem;
     display: grid;
     position: relative;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .handle-msg {
