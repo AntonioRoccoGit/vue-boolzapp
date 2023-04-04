@@ -8,7 +8,9 @@
 
 /* **************|COMMON|************** */
 body {
-    background: linear-gradient(var(--body-top-bg) 15%, var(--body-bottom-bg) 15% 100%)
+    background: linear-gradient(
+        var(--body-top-bg) 15%, 
+        var(--body-bottom-bg) 15% 100%)
 }
 
 img {
@@ -207,9 +209,11 @@ ul {
 /* **************|RIGHT SIDE|************** */
 /* body chat text */
 .chat-container {
+    height: 100%;
     padding: 2rem 2rem 0;
     max-width: 900px;
     margin: 0 auto;
+    overflow-y: scroll;
 }
 
 .msg-row {
@@ -324,7 +328,6 @@ ul {
 
 .body-chat {
     height: calc(100% - 130px);
-    overflow-y: scroll;
     background-image: url(../img/mine.jpg);
 }
 
@@ -412,6 +415,6 @@ ul {
     --body-bottom-bg: #DADBD4;
 }
 
-.recent-chat-card:focus {
+.active-chat {
     background-color: var(--bg-main-layout);
 }

@@ -70,13 +70,14 @@
 
                     <!-- recent chat -->
                     <section class="recent-chat">
-                        <div @click="setCurrItem(item)" v-show="item.visible" @keyup.enter="setCurrItem(item)" tabindex="0"
-                            v-for="item in contacts" class="recent-chat-card">
+                        <div @click="setCurrItem(item, index)" v-show="item.visible" @keyup.enter="setCurrItem(item)" tabindex="0"
+                            v-for="(item, index) in contacts" :class="{'active-chat': item === currItem}" class="recent-chat-card">
                             <img :src="`img/avatar${item.avatar}.jpg`" :alt="item.name">
                             <div class="name-info">
                                 <h3>{{item.name}}</h3>
-                                <p>{{item.messages[item.messages.length - 1].message}}</p>
-                                <span>{{item.messages[item.messages.length - 1].date.substring(11).slice(0, -3)}}</span>
+                                <p v-if="item.messages.length > 0" >{{item.messages[item.messages.length - 1].message}}</p>
+                                <p v-else>Non hai messaggi con l'utente</p>
+                                <span v-if="item.messages.length > 0">{{item.messages[item.messages.length - 1].date.substring(11).slice(0, -3)}}</span>
                             </div>
                         </div>
                     </section>
@@ -86,19 +87,19 @@
                 <!-- /left side -->
 
                 <!-- right side -->
-                <section class="current-chat" v-if="currItem">
+                <section class="current-chat">
 
                     <!-- current chat header -->
                     <div class="header">
-                        <div class="curr-chat-info">
+                        <div  v-if="currItem" class="curr-chat-info">
                             <img :src="`img/avatar${currItem.avatar}.jpg`" :alt="currItem.name">
-                            <div class="user-info-txt">
+                            <div  class="user-info-txt">
                                 <span class="user-name">{{ currItem.name }}</span>
-                                <p>Ultimo accesso {{ currItem.messages[currItem.messages.length -
+                                <p  v-if="currItem && currItem.messages.length > 0">Ultimo accesso {{ currItem.messages[currItem.messages.length -
                                     1].date.slice(0, -3) }}</p>
                             </div>
                         </div>
-                        <div class="call-to-action">
+                        <div  v-if="currItem" class="call-to-action">
                             <ul>
                                 <li><i class="fa-solid fa-magnifying-glass"></i></li>
                                 <li><i class="fa-solid fa-paperclip"></i></li>
@@ -111,11 +112,11 @@
                     <!-- current chat body -->
                     <div class="body-chat">
                         <div class="chat-container">
-                            <div v-for="(messageProp, index) in currItem.messages" class="msg-row">
+                            <div  v-if="currItem" v-for="(messageProp, index) in currItem.messages" class="msg-row">
                                 <div class="handle-msg" :class="messageProp.status">
                                     {{ messageProp.message }} <span class="msg-hour">{{
                                         messageProp.date.substring(11).slice(0, -3) }}</span>
-                                        <span @click="openChatMenu(messageProp)" class="msg-menu">
+                                        <span  v-if="currItem" @click="openChatMenu(messageProp)" class="msg-menu">
                                             <i class="fa-solid fa-angle-down"></i>
                                         </span>
                                 </div>
@@ -132,17 +133,20 @@
 
                     <!-- current chat footer -->
                     <section class="current-chat-footer">
-                        <div class="emoj-menu" tabindex="0">
-                            <i class="fa-regular fa-face-smile"></i>
-                        </div>
-
-                        <div class="chat">
-                            <input v-model.trim="newMessage" @keyup.enter="sendMessage(currItem)" placeholder="Scrivi un messaggio" type="text">
-                        </div>
-
-                        <div class="audio-message" tabindex="0">
-                            <i class="fa-solid fa-microphone"></i>
-                        </div>
+                        <template v-if="currItem" >
+                            <div class="emoj-menu" tabindex="0">
+                                <i class="fa-regular fa-face-smile"></i>
+                            </div>
+    
+                            <div class="chat">
+                                <input v-model.trim="newMessage" @keyup.enter="sendMessage(currItem)" placeholder="Scrivi un messaggio" type="text">
+                            </div>
+    
+                            <div class="audio-message" tabindex="0">
+                                <i class="fa-solid fa-microphone"></i>
+                            </div>
+                        </template>
+                        
                     </section>
                     <!-- /current chat footer -->
 

@@ -6,6 +6,7 @@ createApp({
             filterChat: "",
             newMessage: "",
             currItem: null,
+            currItemIndex: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -172,11 +173,12 @@ createApp({
         }
     },
     methods: {
-        setCurrItem(item) {
+        setCurrItem(item, index) {
             for (const key in item.messages) {
                 item.messages[key].popUpStatus = false;
             }
             this.currItem = item;
+            this.currContacIndex = index;
         },
         sendMessage(item) {
             //vorrei prendere la data del messagio
@@ -194,7 +196,7 @@ createApp({
                         status: 'received'
                     });
                 }, 1500);
-                
+
                 this.newMessage = "";
             }
         },
@@ -203,24 +205,33 @@ createApp({
                 let currentItem = this.contacts[index];
                 let currentItemName = currentItem.name.toLowerCase();
 
-                currentItem.visible = currentItemName.indexOf(this.filterChat.toLowerCase()) > -1;
+                currentItem.visible = currentItemName.includes(this.filterChat.toLowerCase());
             }
         },
         openChatMenu(item) {
-             if (!item.popUpStatus){
-                for(const index in this.contacts){
+            if (!item.popUpStatus) {
+                for (const index in this.contacts) {
                     let currContact = this.contacts[index];
                     for (const key in currContact.messages) {
                         currContact.messages[key].popUpStatus = false;
                     }
                 }
-             }
+            }
             item.popUpStatus = !item.popUpStatus;
         },
         deleteChat(item, index) {
-            if(item.messages.length > 1) {
-                item.messages.splice(index, 1);
-            }
+            item.messages.splice(index, 1);
+        },
+        scrollToEnd() {
+            const container = document.querySelector(".chat-container");
+            const scrollHeigth = container.scrollHeight;
+            container.scrollTop = scrollHeigth;
         }
+    },
+    mounted() {
+        this.scrollToEnd();
+    },
+    updated() {
+        this.scrollToEnd();
     }
 }).mount("#app")
