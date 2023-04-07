@@ -354,6 +354,11 @@ createApp({
         }
     },
     methods: {
+        handleClickItem(item) {
+            this.setCurrItem(item);
+            this.newMessage = "";
+            this.emojShow = false;
+        },
         setCurrItem(item) {
             for (const key in item.messages) {
                 item.messages[key].popUpStatus = false;
