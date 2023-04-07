@@ -71,8 +71,8 @@
 
                     <!-- recent chat -->
                     <section class="recent-chat">
-                        <div @click="setCurrItem(item, index)" v-show="item.visible" @keyup.enter="setCurrItem(item)" tabindex="0"
-                            v-for="(item, index) in contacts" :class="{'active-chat': item === currItem}" class="recent-chat-card">
+                        <div @click="setCurrItem(item)" v-show="item.visible" @keyup.enter="setCurrItem(item)" tabindex="0"
+                            v-for="item in contacts" :class="{'active-chat': item === currItem}" class="recent-chat-card">
                             <img :src="`img/avatar${item.avatar}.jpg`" :alt="item.name">
                             <div class="name-info">
                                 <h3>{{item.name}}</h3>
@@ -111,8 +111,8 @@
                     <!-- /current chat header -->
 
                     <!-- current chat body -->
-                    <div class="body-chat">
-                        <div class="chat-container" ref="scroll">
+                    <div class="body-chat"> 
+                        <div class="chat-container" @click="emojShow = false"  ref="scroll">
                             <div  v-if="currItem" v-for="(messageProp, index) in currItem.messages" class="msg-row">
                                 <div class="handle-msg" :class="messageProp.status">
                                     {{ messageProp.message }} <span class="msg-hour">{{
@@ -144,7 +144,7 @@
                             </div>
     
                             <div class="chat">
-                                <input v-model.trim="newMessage" @keyup.enter="sendMessage(currItem)" placeholder="Scrivi un messaggio" type="text">
+                                <input @click="emojShow = false"  v-model.trim="newMessage" @keyup.enter="sendMessage(currItem)" placeholder="Scrivi un messaggio" type="text">
                             </div>
     
                             <div class="audio-message" tabindex="0">

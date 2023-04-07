@@ -5,29 +5,7 @@ createApp({
         return {
             filterChat: "",
             newMessage: "",
-            currItem: {
-                name: 'Michele',
-                avatar: '_1',
-                visible: true,
-                messages: [
-                    {
-                        date: '10/01/2020 15:30:55',
-                        message: 'hai portato a spasso il cane?',
-                        status: 'sent'
-                    },
-                    {
-                        date: '10/01/2020 15:50:00',
-                        message: 'Ricordati di stendere i panni',
-                        status: 'sent'
-                    },
-                    {
-                        date: '10/01/2020 16:15:22',
-                        message: 'Tutto fatto!',
-                        status: 'received'
-                    }
-                ],
-            },
-            currItemIndex: "",
+            currItem: null,
             contacts: [
                 {
                     name: 'Michele',
@@ -373,16 +351,14 @@ createApp({
                 "footprints": "👣"
             },
             emojShow: false
-              
         }
     },
     methods: {
-        setCurrItem(item, index) {
+        setCurrItem(item) {
             for (const key in item.messages) {
                 item.messages[key].popUpStatus = false;
             }
             this.currItem = item;
-            this.currContacIndex = index;
         },
         sendMessage(item) {
             //vorrei prendere la data del messagio
